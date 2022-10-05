@@ -50,7 +50,19 @@ function showNotes() {
 }
 
 // Function to Delete a Note
+function deleteNote(index) {
+  // console.log("I am deleting")
+  let note = localStorage.getItem("notes");
+  if (note == null) {
+    noteObj = [];
+  } else {
+    noteObj = JSON.parse(note);
+  }
 
+  noteObj.splice(index, 1);
+  localStorage.setItem("notes", JSON.stringify(noteObj));
+  showNotes();
+}
 
 // Function for Searching a Note
 let searchTxt = document.getElementById("searchTxt");
